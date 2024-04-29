@@ -1,0 +1,140 @@
+//database name db1
+
+//tables
+create table user (
+username VARCHAR(500),
+password VARCHAR(500)
+);
+
+create table room (
+id INT PRIMARY KEY AUTO_INCREMENT,
+room_name VARCHAR(255),
+table_nb INT ,
+chair INT ,
+datashow Boolean ,
+wifi Boolean);
+
+create Table reservation(
+_id INT PRIMARY KEY ,
+room_id INT ,
+date_from date,
+CONSTRAINT FOREIGN KEY (room_name) REFERENCES room(room_name)
+)
+
+//Procedures
+
+DELIMITER //
+
+CREATE OR REPLACE PROCEDURE add_room (IN room_name VARCHAR(255) ,IN table_nb INT ,IN chair INT,
+                                     IN datashow BOOLEAN ,IN wifi BOOLEAN )
+BEGIN
+    insert into room (room_name , table_nb , chair , datashow ,wifi) values (room_name ,table_nb,chair,datashow,wifi);
+END //
+
+DELIMITER ;
+
+call Add_room ('room1' , 8 ,50 ,true ,false);
+call Add_room ('room2' , 15 ,100 ,true ,true);
+call Add_room ('room3' , 20 ,70 ,true ,false);
+call Add_room ('room4' , 6 ,30 ,false ,false);
+
+DELIMITER //
+
+CREATE OR REPLACE PROCEDURE update_room (
+    IN p_id INT,
+    IN p_room_name VARCHAR(255),
+    IN p_table_nb INT,
+    IN p_chair INT,
+    IN p_datashow BOOLEAN,
+    IN p_wifi BOOLEAN,
+    OUT p_success BOOLEAN
+)
+BEGIN
+    DECLARE rows_affected INT;
+
+    -- Perform the update
+    UPDATE room
+    SET
+        room_name = p_room_name,
+        table_nb = p_table_nb,
+        chair = p_chair,
+        datashow = p_datashow,
+        wifi = p_wifi
+    WHERE
+        id = p_id;
+
+    -- Get the number of affected rows
+    SELECT ROW_COUNT() INTO rows_affected;
+
+    -- Set success variable based on the number of affected rows
+    IF rows_affected > 0 THEN
+        SET p_success := TRUE;
+    ELSE
+        SET p_success := FALSE;
+    END IF;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+CREATE OR REPLACE PROCEDURE remove_room (IN id INT)
+BEGIN
+    delete from  room where id=id ;
+END //
+
+DELIMITER //
+
+CREATE OR REPLACE PROCEDURE remove_room (
+    IN p_id INT,
+    OUT p_success BOOLEAN
+)
+BEGIN
+    DECLARE rows_affected INT;
+
+	delete from  room where id=p_id ;
+
+    SELECT ROW_COUNT() INTO rows_affected;
+
+    IF rows_affected > 0 THEN
+        SET p_success := TRUE;
+    ELSE
+        SET p_success := FALSE;
+    END IF;
+END //
+
+DELIMITER ;
+DELIMITER //
+
+CREATE PROCEDURE add_reservation(
+        IN p_room_name INT,
+    IN p_reservation_date DATE,
+    OUT success BOOLEAN
+)
+BEGIN
+    DECLARE rows_affected INT;
+
+    INSERT INTO reservation(room_Id, date_from) VALUES (p_room_name, p_reservation_date);
+    SELECT ROW_COUNT() INTO rows_affected;
+
+    -- Set success variable based on the number of affected rows
+    IF rows_affected > 0 THEN
+        SET success := TRUE;
+    ELSE
+        SET success := FALSE;
+    END IF;
+END//
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE OR REPLACE PROCEDURE get_roomByDate (
+IN datefrom Date
+)
+BEGIN
+   SELECT room.id,room.room_name,room.table_nb,room.chair,room.datashow,room.wifi FROM reservation
+   JOIN room ON room.id = reservation._id WHERE reservation.date_from=datefrom ;
+END
+ // DELIMITER ;

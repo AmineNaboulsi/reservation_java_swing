@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="496.0" prefWidth="900.0" style="-fx-background-color: #083C84;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nabnab.reservation.LoginController">
+   <Pane minWidth="-Infinity" prefHeight="502.0" prefWidth="900.0" style="-fx-background-color: #083C84;">
+      <children>
+      
+          <Label fx:id="welcomeText" layoutX="832.0" layoutY="-2.0" prefHeight="25.0" prefWidth="67.0" text="Etat Cnx" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></Label>
+         <Label fx:id="welcomeText1" layoutX="272.0" layoutY="51.0" prefHeight="74.0" prefWidth="265.0" text="Reservation" textAlignment="JUSTIFY" textFill="WHITE" textOverrun="LEADING_ELLIPSIS" wrapText="true">
+            <font>
+               <Font size="51.0" />
+            </font>
+         </Label>
+         <Pane layoutX="247.0" layoutY="153.0" prefHeight="343.0" prefWidth="420.0" style="-fx-background-color: #fff; -fx-background-radius: 20 20 0 0;">
+            <children>
+                <Button layoutX="103.0" layoutY="229.0" onAction="#Login_In" prefHeight="41.0" prefWidth="224.0" style="-fx-background-color: #2F9AD1;" text="Login" textFill="WHITE">
+                  <font>
+                     <Font size="19.0" />
+                  </font></Button>
+               <TextField fx:id="txt_password" layoutX="103.0" layoutY="153.0" prefHeight="25.0" prefWidth="224.0" style="-fx-padding: 10 12 10 12;" text="admin" />
+               <TextField fx:id="txt_username" layoutX="103.0" layoutY="73.0" prefHeight="25.0" prefWidth="224.0" style="-fx-padding: 10 12 10 12;" text="admin" />
+               <Label fx:id="welcomeText2" layoutX="218.0" layoutY="317.0" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #fff;" text="Privacy Policy" textFill="#3c50ff" underline="true" />
+               <Label fx:id="welcomeText3" layoutX="129.0" layoutY="317.0" prefHeight="25.0" prefWidth="88.0" style="-fx-background-color: #fff;" text="you can see our" />
+               <Label fx:id="welcomeText21" layoutX="103.0" layoutY="43.0" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #fff;" text="UserName">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font>
+               </Label>
+               <Label fx:id="welcomeText211" layoutX="102.0" layoutY="117.0" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #fff;" text="Password">
+                  <font>
+                     <Font name="System Bold" size="15.0" />
+                  </font>
+               </Label>
+               <Label fx:id="txt_error" alignment="CENTER" contentDisplay="RIGHT" layoutX="104.0" layoutY="278.0" prefHeight="25.0" prefWidth="224.0" style="-fx-background-color: #fff;" />
+            </children>
+         </Pane>
+         <Label fx:id="welcomeText11" layoutX="542.0" layoutY="51.0" prefHeight="74.0" prefWidth="126.0" text=".com" textAlignment="JUSTIFY" textFill="#0374ff" textOverrun="LEADING_ELLIPSIS" wrapText="true">
+            <font>
+               <Font name="System Bold" size="50.0" />
+            </font>
+         </Label>
+      </children>
+   </Pane>
+
+</VBox>

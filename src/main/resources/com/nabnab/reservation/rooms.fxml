@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="702.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nabnab.reservation.Rooms">
+   <children>
+      <Pane layoutX="27.0" layoutY="90.0" prefHeight="118.0" prefWidth="658.0" style="-fx-border-color: #c4c4c4; -fx-border-radius: 5; -fx-border-image-width: 1;">
+         <children>
+            <Label layoutX="15.0" layoutY="13.0" text="Room Id">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_roomname" layoutX="366.0" layoutY="13.0" prefHeight="25.0" prefWidth="263.0" />
+            <Label layoutX="15.0" layoutY="72.0" text="Number de table">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_nbtables" layoutX="132.0" layoutY="69.0" prefHeight="25.0" prefWidth="39.0" />
+            <Label layoutX="205.0" layoutY="71.0" text="Number de chaise">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_nbchaires" layoutX="327.0" layoutY="69.0" prefHeight="25.0" prefWidth="39.0" />
+            <CheckBox fx:id="chebox_datatshow" layoutX="463.0" layoutY="83.0" mnemonicParsing="false" text="Datashow" />
+            <CheckBox fx:id="chebox_wifi" layoutX="580.0" layoutY="81.0" mnemonicParsing="false" text="Wifi" />
+            <Label layoutX="261.0" layoutY="15.0" text="Room Name">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_roomid" disable="true" layoutX="106.0" layoutY="12.0" prefHeight="25.0" prefWidth="112.0" />
+         </children>
+      </Pane>
+      <Pane layoutY="-1.0" prefHeight="67.0" prefWidth="702.0" style="-fx-background-color: #c4c4c4;">
+         <children>
+            <Label layoutX="45.0" layoutY="18.0" text="Rooms">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView fx:id="gridrooms" layoutX="27.0" layoutY="312.0" prefHeight="277.0" prefWidth="658.0">
+         <columns>
+            <TableColumn fx:id="roomname" prefWidth="288.8000297546387" text="roomname" />
+            <TableColumn fx:id="nbtables" prefWidth="96.79998779296875" text="nbtables" />
+            <TableColumn fx:id="nb_chairs" prefWidth="88.79998779296875" text="nb_chairs" />
+            <TableColumn fx:id="wifi" prefWidth="100.00006103515625" text="wifi" />
+            <TableColumn fx:id="datashow" prefWidth="84.0" text="datashow" />
+         </columns>
+      </TableView>
+      <Button fx:id="btn_update" layoutX="478.0" layoutY="221.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: #000; -fx-text-fill: #fff;" text="Add">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_delete" layoutX="585.0" layoutY="221.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="56.0" style="-fx-background-color: #C81D3D; -fx-text-fill: #fff;" text="Delete">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="status" layoutX="32.0" layoutY="225.0" />
+      <ImageView fitHeight="26.0" fitWidth="22.0" layoutX="445.0" layoutY="221.0" onMouseClicked="#refrech_click" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Imgs/refresh.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

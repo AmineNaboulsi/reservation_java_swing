@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="88.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nabnab.reservation.ReservetionItem">
+   <children>
+      <Pane layoutX="84.0" layoutY="15.0" prefHeight="2.0" prefWidth="500.0" style="-fx-background-color: #c4c4c4;" />
+      <Text fx:id="txt_time" fontSmoothingType="LCD" layoutX="39.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8 AM" />
+      <Pane layoutX="80.0" layoutY="12.0" prefHeight="7.0" prefWidth="7.0" style="-fx-background-color: #c4c4c4; -fx-background-radius: 15;" />
+      <Text layoutX="323.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vide" />
+   </children>
+</Pane>
